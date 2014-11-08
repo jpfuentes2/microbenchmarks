@@ -13,6 +13,7 @@
 
     <modules>
         <module>lazyvals</module>
+        <module>tryfinally</module>
     </modules>
 
     <properties>
