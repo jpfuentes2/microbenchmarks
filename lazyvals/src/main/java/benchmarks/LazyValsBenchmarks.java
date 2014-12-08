@@ -6,8 +6,8 @@ import org.openjdk.jmh.annotations.Benchmark;
 public class LazyValsBenchmarks {
 
     @Benchmark
-    public long baseline(ValCounterProvider eagerProvider1, ValCounterProvider2 eagerProvider2) {
-        return eagerProvider1.counter().incrementAndGet();
+    public long baseline(ValCounterProvider eagerProvider) {
+        return eagerProvider.counter().incrementAndGet();
     }
 
     @Benchmark
