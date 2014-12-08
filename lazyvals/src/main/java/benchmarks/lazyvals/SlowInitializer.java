@@ -11,8 +11,7 @@ public class SlowInitializer {
         private Counter() { }
 
         public int incrementAndGet() {
-            value = value + 1;
-            return value;
+            return ++value;
         }
     }
 

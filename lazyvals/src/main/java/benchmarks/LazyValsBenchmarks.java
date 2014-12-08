@@ -1,30 +1,18 @@
 package benchmarks;
 
-import benchmarks.lazyvals.EagerCounterProvider;
-import benchmarks.lazyvals.LazyCounterProvider;
-import benchmarks.lazyvals.LazyValCounterProvider;
-import benchmarks.lazyvals.ValCounterProvider;
+import benchmarks.lazyvals.*;
 import org.openjdk.jmh.annotations.Benchmark;
 
 public class LazyValsBenchmarks {
 
     @Benchmark
-    public long measureJavaLazyCounterPerformance(LazyCounterProvider lazyProvider) {
-        return lazyProvider.getCounter().incrementAndGet();
+    public long baseline(ValCounterProvider eagerProvider1, ValCounterProvider2 eagerProvider2) {
+        return eagerProvider1.counter().incrementAndGet();
     }
 
     @Benchmark
-    public long measureJavaEagerCounterPerformance(EagerCounterProvider eagerProvider) {
-        return eagerProvider.getCounter().incrementAndGet();
-    }
-
-    @Benchmark
-    public long measureScalaEagerCounterPerformance(ValCounterProvider eagerProvider) {
-        return eagerProvider.counter().incrementAndGet();
-    }
-
-    @Benchmark
-    public long measureScalaLazyCounterPerformance(LazyValCounterProvider lazyProvider) {
+    public long lazyValCounter(LazyValCounterProvider lazyProvider) {
         return lazyProvider.counter().incrementAndGet();
     }
 }
+
